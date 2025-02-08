@@ -30,10 +30,9 @@ public class RoomService {
 	   3. Return a new Collection of Rooms where Room#type matches the provided String.
 		  The original Room Inventory collection MUST NOT BE MODIFIED.
 	*/
-		Collection<Room> roomByType = new ArrayList<>();
 		return inventory.stream()
 				.filter(room -> type.equals(room.getType()))
-				.collect(Collectors.toList());
+				.collect(Collectors.toUnmodifiableList());
 	}
 
 	public Collection<Room> getInventory() {
